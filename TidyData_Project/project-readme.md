@@ -48,14 +48,13 @@ pip install pandas numpy matplotlib seaborn
 ## Project Structure
 
 ```
-.
-├── fed_rd_year&gdp.csv       # Original raw data
-├── tidy-data-project.py      # Main Python script
-├── README.md                 # This file
-└── TidyData_Project/         # Output directory
-    ├── tidy_federal_rd_data.csv     # Cleaned data in tidy format
-    ├── spending_over_time.png       # Visualization of dept spending
-    └── spending_percent_gdp.png     # Visualization of GDP percentage
+TidyData_Project/
+├── fed_rd_year&gdp.csv         # Original raw data
+├── tidy-data-project.py        # Main Python script
+├── README.md                   # This file
+├── tidy_federal_rd_data.csv    # Cleaned data in tidy format
+├── spending_over_time.png      # Visualization of dept spending
+└── spending_percent_gdp.png    # Visualization of GDP percentage
 ```
 
 ## Data Description
@@ -102,7 +101,7 @@ The script performs these key transformations:
 ## Visualizations
 
 ### 1. R&D Spending Over Time by Top 5 Departments
-![R&D Spending Over Time by Top 5 Departments](TidyData_Project/spending_over_time.png)
+![R&D Spending Over Time by Top 5 Departments](../TidyData_Project/spending_over_time.png)
 
 This visualization shows:
 - DOD's dominant position in R&D funding
@@ -112,7 +111,7 @@ This visualization shows:
 - Relative stability in NASA and DOE funding
 
 ### 2. Total Federal R&D Spending as Percentage of GDP
-![Total Federal R&D Spending as Percentage of GDP](TidyData_Project/spending_percent_gdp.png)
+![Total Federal R&D Spending as Percentage of GDP](../TidyData_Project/spending_percent_gdp.png)
 
 This visualization reveals:
 - Dramatic decline in R&D investment relative to GDP since the 1970s
@@ -142,6 +141,6 @@ The script includes robust error handling for:
 
 ## References
 
-- Wickham, H. (2014). "Tidy Data." Journal of Statistical Software, 59(10), 1-23. [Link](https://www.jstatsoft.org/article/view/v059i10)
-- Pandas Documentation: [pandas.melt](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)
+- Wickham, H. (2014). "Tidy Data." Journal of Statistical Software, 59(10), 1-23. [Link](https://vita.had.co.nz/papers/tidy-data.pdf)
+- Pandas Documentation: [pandas.melt](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 - Federal R&D Budget Historical Analysis: [AAAS Historical Trends](https://www.aaas.org/programs/r-d-budget-and-policy/historical-trends-federal-rd)
