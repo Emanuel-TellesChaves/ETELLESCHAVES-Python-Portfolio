@@ -6,25 +6,26 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-# Set plot style
+# Setting plot style
 plt.style.use('seaborn-v0_8-whitegrid')
 sns.set_palette("viridis")
 
-# 1. Data Loading
-# ---------------
+# 1. loading the data
+# ---------------------
 try:
-    # Get the current script's directory
+    # Getting the current script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Construct absolute path to the data file
     file_path = os.path.join(script_dir, 'fed_rd_year&gdp.csv')
     
-    # Add this temporarily for debugging
+    # I'm adding this temporarily for debugging purposes
     print(f"Script directory: {os.path.dirname(os.path.abspath(__file__))}")
     print(f"Looking for file at: {file_path}")
     print(f"File exists: {os.path.exists(file_path)}")
     
-    # Verify file exists before attempting to read
+    # Verifying file exists before attempting to read 
+    #this is optional, I'm just adding it in case I need it for another project too
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Data file not found at: {file_path}")
     
@@ -48,7 +49,7 @@ except Exception as e:
     exit(1)
 
 # 2. Data Cleaning and Transformation to Tidy Format
-# -------------------------------------------------
+# --------------------------------------------
 
 # Step 1: Melt the dataframe to convert from wide to long format
 # This transforms columns (years) into rows
@@ -80,13 +81,13 @@ tidy_df = melted_df.drop(['year_gdp', 'gdp_info'], axis=1)
 # Calculate spending as percentage of GDP
 tidy_df['spending_pct_gdp'] = (tidy_df['spending'] / tidy_df['gdp']) * 100
 
-# Reorder columns for clarity
+# Reordering columns for clarity
 tidy_df = tidy_df[['department', 'year', 'gdp', 'spending', 'spending_pct_gdp']]
 
 print("Final tidy dataset:")
 print(tidy_df.head())
 
-# Save the tidy dataset
+# And then saving tidy dataset
 tidy_df.to_csv(os.path.join('TidyData_Project', 'tidy_federal_rd_data.csv'), index=False)
 
 # 3. Visualizations
@@ -98,12 +99,19 @@ print("\n--- Creating Visualization 1: Spending Over Time by Top Departments ---
 # Identify top 5 departments by total spending
 top_depts = tidy_df.groupby('department')['spending'].sum().nlargest(5).index
 
+# Define a distinct color palette
+distinct_colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00']
+
 plt.figure(figsize=(14, 8))
 
-# Plot data for each top department
-for dept in top_depts:
+# Plot data for each top department with distinct colors
+for dept, color in zip(top_depts, distinct_colors):
     dept_data = tidy_df[tidy_df['department'] == dept]
-    plt.plot(dept_data['year'], dept_data['spending'] / 1e9, marker='o', linewidth=2, label=dept)
+    plt.plot(dept_data['year'], dept_data['spending'] / 1e9, 
+             marker='o', 
+             linewidth=2, 
+             label=dept,
+             color=color)
 
 # Add labels and legend
 plt.title('R&D Spending Over Time by Top 5 Departments', fontsize=16)
@@ -119,7 +127,7 @@ plt.show()
 # Visualization 2: Total R&D Spending as Percentage of GDP Over Time
 print("\n--- Creating Visualization 2: R&D Spending as % of GDP ---")
 
-# Calculate total spending as percentage of GDP for each year
+# Calculating total spending as percentage of GDP for each year
 annual_data = tidy_df.groupby('year').agg({
     'spending': 'sum',
     'gdp': 'first'  # GDP is the same for all departments in a given year
@@ -140,13 +148,13 @@ plt.savefig(os.path.join('TidyData_Project', 'spending_percent_gdp.png'), dpi=30
 plt.show()
 
 # 4. Pivot Table Analysis
-# ----------------------
+# --------------------------
 print("\n--- Creating Pivot Table: Average Spending by Department and Decade ---")
 
 # Create a decade column
 tidy_df['decade'] = (tidy_df['year'] // 10) * 10
 
-# Create pivot table with average spending by department and decade
+# Creating pivot table with average spending by department and decade
 pivot_table = pd.pivot_table(
     tidy_df,
     values='spending',
@@ -162,7 +170,7 @@ print("Average R&D Spending by Department and Decade (in Millions USD):")
 print(pivot_table_millions)
 
 # 5. Additional Analysis: Department Spending Growth Rates
-# -------------------------------------------------------
+# -----------------------------------------------
 print("\n--- Department Spending Growth Analysis ---")
 
 # Calculate the compound annual growth rate (CAGR) for each department
@@ -172,14 +180,14 @@ growth_df = tidy_df.groupby(['department', 'year'])['spending'].sum().reset_inde
 # Create a pivot table with years as columns and departments as rows
 growth_pivot = growth_df.pivot(index='department', columns='year', values='spending')
 
-# Calculate overall growth rate (from first to last available year)
+# Calculating overall growth rate (from first to last available year)
 first_year = growth_pivot.columns.min()
 last_year = growth_pivot.columns.max()
 years_diff = last_year - first_year
 
 growth_pivot['growth_rate'] = ((growth_pivot[last_year] / growth_pivot[first_year]) ** (1 / years_diff) - 1) * 100
 
-# Sort by growth rate
+# And finally sort by growth rate
 top_growth = growth_pivot['growth_rate'].sort_values(ascending=False)
 
 print("Top departments by spending growth rate (1976-2017):")
