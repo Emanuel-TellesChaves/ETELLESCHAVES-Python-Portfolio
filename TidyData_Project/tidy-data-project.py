@@ -122,6 +122,7 @@ plt.grid(True)
 plt.xticks(tidy_df['year'].unique()[::5])  # Display every 5th year
 plt.tight_layout()
 plt.savefig(os.path.join('TidyData_Project', 'spending_over_time.png'), dpi=300)
+plt.savefig('spending_over_time.png', dpi=300)
 plt.show()
 
 # Visualization 2: Total R&D Spending as Percentage of GDP Over Time
@@ -145,6 +146,7 @@ plt.grid(True)
 plt.xticks(tidy_df['year'].unique()[::5])  # Display every 5th year
 plt.tight_layout()
 plt.savefig(os.path.join('TidyData_Project', 'spending_percent_gdp.png'), dpi=300)
+plt.savefig('spending_percent_gdp.png', dpi=300)
 plt.show()
 
 # 4. Pivot Table Analysis
