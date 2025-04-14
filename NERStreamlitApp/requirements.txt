@@ -2,6 +2,8 @@ setuptools>=65.5.1
 wheel>=0.42.0
 # Add setuptools-scm to help with build process
 setuptools-scm>=7.1.0
+# Include Pillow pre-compiled
+pillow>=10.0.0
 # Core dependencies
 streamlit==1.24.0
 # Use a newer NumPy compatible with Python 3.12

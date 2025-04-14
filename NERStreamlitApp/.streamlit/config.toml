@@ -9,6 +9,11 @@ font = "sans serif"
 enableCORS = false
 enableWebsocketCompression = false
 maxUploadSize = 50
+runOnSave = true
 
 [browser]
-gatherUsageStats = false 
+gatherUsageStats = false
+
+[global]
+developmentMode = false
+logLevel = "info" 

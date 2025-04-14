@@ -9,6 +9,9 @@ pip install --upgrade pip
 # Install setuptools and wheel first to avoid dependency issues
 pip install setuptools>=65.5.1 wheel>=0.42.0 setuptools-scm>=7.1.0 --no-cache-dir
 
+# Install Pillow first to avoid build issues
+pip install pillow>=10.0.0 --no-cache-dir
+
 # Install NumPy and pandas first (Python 3.12 compatible versions)
 pip install numpy>=1.26.0 pandas>=2.0.0 --no-cache-dir
 
