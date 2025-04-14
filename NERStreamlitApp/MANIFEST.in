@@ -1,0 +1,8 @@
+include requirements.txt
+include setup.py
+include pyproject.toml
+include runtime.txt
+include packages.txt
+include setup.sh
+recursive-include .streamlit *
+recursive-include sample_texts * 
