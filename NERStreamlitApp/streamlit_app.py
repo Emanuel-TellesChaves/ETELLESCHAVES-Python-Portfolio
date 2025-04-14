@@ -11,6 +11,17 @@ if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
 try:
+    # Import packages in correct order with versions compatible with Python 3.12
+    import numpy as np
+    import pandas as pd
+    import spacy
+    
+    # Print versions for debugging
+    st.sidebar.markdown("### Environment Info")
+    st.sidebar.markdown(f"NumPy: {np.__version__}")
+    st.sidebar.markdown(f"pandas: {pd.__version__}")
+    st.sidebar.markdown(f"spaCy: {spacy.__version__}")
+    
     # Try to import the app module
     from app import *
 except ImportError as e:
@@ -20,10 +31,13 @@ except ImportError as e:
     try:
         import subprocess
         
-        # Install base packages
+        # Install latest setuptools and wheel
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-U", "setuptools", "wheel"])
         
-        # Install required packages
+        # Install Python 3.12 compatible NumPy first
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "numpy>=1.26.0", "pandas>=2.0.0"])
+        
+        # Install remaining dependencies
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
         
         # Reload the app

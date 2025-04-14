@@ -40,7 +40,7 @@ for package in packages:
 
 st.code("\n".join(package_info))
 
-# Check numpy compatibility
+# Check NumPy functionality
 st.write("### NumPy Compatibility Check")
 try:
     import numpy as np
@@ -53,6 +53,14 @@ try:
     st.success("NumPy is working correctly!")
 except Exception as e:
     st.error(f"NumPy error: {str(e)}")
+    
+    # Try reinstalling NumPy
+    st.warning("Attempting to install a compatible NumPy version...")
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "numpy>=1.26.0", "--force-reinstall"])
+        st.success("NumPy reinstalled. Please refresh the page.")
+    except Exception as np_error:
+        st.error(f"Failed to reinstall NumPy: {str(np_error)}")
 
 # Check spaCy model
 st.write("### spaCy Model Check")
