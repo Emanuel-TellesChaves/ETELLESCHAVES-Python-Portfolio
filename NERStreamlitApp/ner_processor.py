@@ -19,8 +19,13 @@ class NERProcessor:
             self.nlp = spacy.load(model_name)
         except OSError:
             # If model isn't installed, download it
-            spacy.cli.download(model_name)
-            self.nlp = spacy.load(model_name)
+            try:
+                spacy.cli.download(model_name)
+                self.nlp = spacy.load(model_name)
+            except Exception as e:
+                # Fallback to loading from the full path
+                import en_core_web_sm
+                self.nlp = en_core_web_sm.load()
         
         # Remove the existing entity ruler if present
         if "entity_ruler" in self.nlp.pipe_names:
