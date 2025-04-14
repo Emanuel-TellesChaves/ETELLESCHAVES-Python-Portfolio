@@ -4,5 +4,10 @@ pandas==1.5.3
 numpy==1.23.5
 pydantic==1.10.2
 nltk==3.8.1
-setuptools>=65.5.1
+setuptools==65.5.1
+pip==24.0
+markdown-it-py==3.0.0
+mdurl==0.1.2
+Pygments==2.19.1
+rich==14.0.0
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.4.0/en_core_web_sm-3.4.0-py3-none-any.whl
