@@ -1,13 +1,28 @@
-import streamlit as st
-import pandas as pd
-import json
-import io
-from typing import Dict, List, Any
-import os
+try:
+    # Try importing numpy first to ensure correct version is loaded
+    import numpy as np
+    import pandas as pd
+    import streamlit as st
+    import json
+    import io
+    from typing import Dict, List, Any
+    import os
+    import sys
 
-# Import our modules
-from ner_processor import NERProcessor
-from utils import load_sample_texts, validate_pattern, format_pattern_for_display
+    # Import our modules
+    from ner_processor import NERProcessor
+    from utils import load_sample_texts, validate_pattern, format_pattern_for_display
+except ImportError as e:
+    st.error(f"Import error: {e}")
+    st.info("Trying to fix the installation...")
+    import subprocess
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "numpy==1.24.3", "--force-reinstall"])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+        st.info("Dependencies reinstalled. Please refresh the page.")
+    except Exception as install_error:
+        st.error(f"Failed to reinstall dependencies: {install_error}")
+    st.stop()
 
 # Set page configuration
 st.set_page_config(
@@ -46,7 +61,19 @@ st.markdown("""
 
 # Initialize session state
 if 'ner_processor' not in st.session_state:
-    st.session_state.ner_processor = NERProcessor()
+    try:
+        st.session_state.ner_processor = NERProcessor()
+    except Exception as e:
+        st.error(f"Error initializing NER processor: {e}")
+        st.info("Please wait while we try to fix this...")
+        import subprocess
+        try:
+            subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+            st.session_state.ner_processor = NERProcessor()
+            st.success("Fixed! NER processor initialized successfully.")
+        except Exception as download_error:
+            st.error(f"Failed to download spaCy model: {download_error}")
+        st.stop()
 
 if 'entity_patterns' not in st.session_state:
     st.session_state.entity_patterns = {}  # {label: [patterns]}

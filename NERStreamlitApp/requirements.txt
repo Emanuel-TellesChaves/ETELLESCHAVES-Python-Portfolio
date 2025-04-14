@@ -1,18 +1,26 @@
-streamlit>=1.24.0
+streamlit==1.24.0
+# Core data science packages with precise versioning 
+numpy==1.23.5
+pandas==1.5.3
+# spaCy and NLP
 spacy==3.8.0
-pandas>=1.5.3
-numpy>=1.23.5
-pydantic>=1.10.2,<2.0.0
-nltk>=3.8.1
-setuptools>=65.5.1
-typing-extensions>=4.5.0
-markdown-it-py>=2.2.0
-mdurl>=0.1.0
-pygments>=2.13.0
-rich>=10.14.0
-click>=8.1.7
-python-dateutil>=2.8.2
-pytz>=2023.3
-six>=1.16.0
-wheel>=0.42.0
+nltk==3.8.1
+# Dependency management
+setuptools==65.5.1
+wheel==0.42.0
+# API and types
+pydantic==1.10.8
+typing-extensions==4.5.0
+# UI dependencies
+click==8.1.7
+pygments==2.15.0
+markdown-it-py==2.2.0
+mdurl==0.1.2
+rich==13.3.5
+# Date handling
+python-dateutil==2.8.2
+pytz==2023.3
+six==1.16.0
+
+# spaCy model - use URL directly
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
