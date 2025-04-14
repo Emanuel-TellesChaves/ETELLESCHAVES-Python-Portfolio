@@ -1,0 +1,7 @@
+Google and Microsoft announced new artificial intelligence features at their annual developer conferences held in San Francisco last week. The CEOs, Sundar Pichai and Satya Nadella, emphasized their companies' commitment to integrating AI into their products. 
+
+Apple is expected to reveal its own AI initiatives at WWDC in June 2023, according to reports from Bloomberg. Tim Cook mentioned that Apple has been investing heavily in generative AI technologies since 2022.
+
+Meanwhile, startups like OpenAI and Anthropic have raised over $10 billion in funding from venture capital firms including Sequoia Capital and Andreessen Horowitz. Sam Altman, CEO of OpenAI, spoke at a recent conference in New York about the future of large language models and their impact on society.
+
+Tesla's Elon Musk announced a new AI project called xAI on July 12, 2023, which aims to compete with existing AI labs. The company has hired researchers from DeepMind and various universities across the United States. 
