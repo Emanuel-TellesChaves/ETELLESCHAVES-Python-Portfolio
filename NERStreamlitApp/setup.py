@@ -7,7 +7,7 @@ setup(
     python_requires=">=3.10,<3.11",
     install_requires=[
         "streamlit>=1.32.0",
-        "spacy>=3.8.0",
+        "spacy>=3.7.0,<3.8.0",
         "pandas>=2.0.0",
         "numpy>=1.26.0",
         # Pillow is installed separately in setup.sh

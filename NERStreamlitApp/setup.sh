@@ -6,13 +6,16 @@ set -e
 # Upgrade pip to the latest version
 pip install --upgrade pip
 
-# Install required dependencies first
-pip install -r requirements.txt
+# Use a more direct approach to install dependencies
+echo "Installing dependencies..."
+pip install -r requirements.txt --no-cache-dir
 
-# Make sure spaCy model is linked
-python -m spacy link en_core_web_sm en_core_web_sm
+# Make sure spaCy model is linked - using the correct version
+python -m spacy link en_core_web_sm-3.7.1 en_core_web_sm
 
 # Verify installations
 echo "Setup complete!"
-echo "Pillow version: $(python -c 'import PIL; print(PIL.__version__)')"
-echo "spaCy version: $(python -c 'import spacy; print(spacy.__version__)')" 
+pip list | grep -E "pillow|numpy|pandas|spacy|streamlit"
+python -c "import PIL; print('Pillow version:', PIL.__version__)"
+python -c "import spacy; print('spaCy version:', spacy.__version__)"
+python -c "import spacy; nlp = spacy.load('en_core_web_sm'); print('Model loaded successfully')" 

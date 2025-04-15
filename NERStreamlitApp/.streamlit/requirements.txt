@@ -10,4 +10,4 @@ typing-extensions>=4.5.0
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
 
 # Direct link to pre-built Pillow wheel for Python 3.10
-https://files.pythonhosted.org/packages/d4/c9/7d0748b6caf1cad1a4cdcfad2ea6b2a76b4fe42c2264e8829bf3be24032c/Pillow-9.5.0-cp310-cp310-manylinux_2_28_x86_64.whl
+https://files.pythonhosted.org/packages/d4/c9/7d0748b6caf1cad1a4cdcfad2ea6b2a76b4fe42c2264e8829bf3be24032c/Pillow-9.5.0-cp310-cp310-manylinux_2_28_x86_64.whl 
