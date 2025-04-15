@@ -33,14 +33,6 @@ except ImportError as e:
         st.error(f"Failed to reinstall dependencies: {install_error}")
     st.stop()
 
-# Set page configuration
-st.set_page_config(
-    page_title="Custom NER Application",
-    page_icon="🔍",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
 # Custom CSS for better visualization
 st.markdown("""
 <style>

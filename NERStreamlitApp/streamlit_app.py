@@ -22,9 +22,16 @@ if current_dir not in sys.path:
 try:
     import streamlit as st
     
+    # Set page configuration - Must be first Streamlit command
+    st.set_page_config(
+        page_title="Custom NER Application",
+        page_icon="🔍",
+        layout="wide",
+        initial_sidebar_state="expanded"
+    )
+    
     # Check if we should run diagnostics (add ?debug=true to URL)
-    params = st.experimental_get_query_params()
-    debug_mode = params.get('debug', ['false'])[0].lower() == 'true'
+    debug_mode = st.query_params.get("debug", "false").lower() == "true"
     
     if debug_mode:
         # Try to import typing to diagnose issues
