@@ -1,12 +1,3 @@
-# Monkey patch for typing.TypeVar issue
-import sys
-import typing
-if not hasattr(typing.TypeVar, '__class_getitem__'):
-    # Add the method to make TypeVar compatible with subscripting
-    def _class_getitem(cls, key):
-        return cls
-    typing.TypeVar.__class_getitem__ = classmethod(_class_getitem)
-
 try:
     # Try importing PIL first to ensure it's loaded correctly
     import PIL
@@ -26,6 +17,7 @@ try:
     from ner_processor import NERProcessor
     from utils import load_sample_texts, validate_pattern, format_pattern_for_display
 except ImportError as e:
+    import streamlit as st
     st.error(f"Import error: {e}")
     st.info("Trying to fix the installation...")
     import subprocess
