@@ -1,13 +1,13 @@
-streamlit==1.24.0
-numpy==1.24.3
-pandas==1.5.3
+streamlit==1.32.0
+numpy>=1.26.0
+pandas>=2.0.0
 spacy==3.8.0
 nltk==3.8.1
 pydantic==1.10.8
-typing-extensions==4.5.0
+typing-extensions>=4.5.0
 
 # spaCy model direct reference - works in both environments
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 
-# Pillow version compatible with streamlit 1.24.0
+# Pillow version compatible with streamlit
 pillow>=6.2.0,<10.0.0

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 # NOTE: Dependencies are specified in requirements.txt
@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 name = "NERStreamlitApp"
 version = "0.1.0"
 description = "Custom Named Entity Recognition using spaCy and Streamlit"
-requires-python = ">=3.9,<3.10"
+requires-python = ">=3.10,<3.11"
 
 [tool.setuptools]
 packages = [] 
