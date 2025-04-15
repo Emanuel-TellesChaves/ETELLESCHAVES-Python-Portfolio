@@ -3,8 +3,11 @@
 # Make sure the script stops on first error
 set -e
 
-# Upgrade pip
-pip install --upgrade pip
+# Upgrade pip to the latest version
+pip install --upgrade pip==25.0.1
+
+# Install Pillow as pre-built wheel first
+pip install --only-binary :all: pillow==9.5.0
 
 # Install Python dependencies
 pip install -r requirements.txt

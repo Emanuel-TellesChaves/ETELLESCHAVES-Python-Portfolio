@@ -10,6 +10,6 @@ setup(
         "spacy>=3.8.0",
         "pandas>=1.5.3",
         "numpy>=1.23.5",
-        "pillow>=6.2.0,<10.0.0",
+        # Pillow is installed separately in setup.sh
     ],
 ) 
