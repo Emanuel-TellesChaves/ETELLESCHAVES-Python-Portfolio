@@ -6,7 +6,8 @@ nltk==3.8.1
 pydantic==1.10.8
 typing-extensions==4.5.0
 types-setuptools==68.0.0.3
-Pillow==9.5.0
+# Use a direct link to a prebuilt Pillow wheel for Python 3.10
+https://files.pythonhosted.org/packages/cd/87/3e0241e04a93b3599d455277e79e9e9e92e07ac476da1a8db9e155e2ff58ff/Pillow-9.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 python-dateutil==2.8.2
 setuptools==65.5.1
 

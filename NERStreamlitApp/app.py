@@ -8,6 +8,10 @@ if not hasattr(typing.TypeVar, '__class_getitem__'):
     typing.TypeVar.__class_getitem__ = classmethod(_class_getitem)
 
 try:
+    # Try importing PIL first to ensure it's loaded correctly
+    import PIL
+    print(f"Pillow version: {PIL.__version__}")
+    
     # Try importing numpy first to ensure correct version is loaded
     import numpy as np
     import pandas as pd
