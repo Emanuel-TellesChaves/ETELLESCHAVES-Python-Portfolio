@@ -14,6 +14,5 @@ runOnSave = true
 [browser]
 gatherUsageStats = false
 
-[global]
-developmentMode = false
-logLevel = "info" 
+[logger]
+level = "info" 
