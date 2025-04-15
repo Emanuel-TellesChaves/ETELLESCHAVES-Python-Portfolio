@@ -4,13 +4,15 @@
 set -e
 
 # Upgrade pip to the latest version
-pip install --upgrade pip==25.0.1
+pip install --upgrade pip
 
-# Install Pillow as pre-built wheel first
-pip install --only-binary :all: pillow==9.5.0
-
-# Install Python dependencies
+# Install required dependencies first
 pip install -r requirements.txt
 
-# Link spaCy model (don't try to download it again)
-python -m spacy link en_core_web_sm en_core_web_sm 
+# Make sure spaCy model is linked
+python -m spacy link en_core_web_sm en_core_web_sm
+
+# Verify installations
+echo "Setup complete!"
+echo "Pillow version: $(python -c 'import PIL; print(PIL.__version__)')"
+echo "spaCy version: $(python -c 'import spacy; print(spacy.__version__)')" 

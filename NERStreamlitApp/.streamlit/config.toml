@@ -10,15 +10,20 @@ enableCORS = true
 enableWebsocketCompression = true
 maxUploadSize = 10
 runOnSave = false
+headless = true
+port = 8501
 
 [browser]
 gatherUsageStats = false
 
 [logger]
 level = "info"
+messageFormat = "%(asctime)s %(message)s"
 
 [client]
 showErrorDetails = true
+toolbarMode = "minimal"
 
 [runner]
-fastReruns = true 
+fastReruns = true
+magicEnabled = true 
