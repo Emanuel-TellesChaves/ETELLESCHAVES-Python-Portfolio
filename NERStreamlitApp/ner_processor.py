@@ -1,3 +1,12 @@
+# Monkey patch for typing.TypeVar issue
+import sys
+import typing
+if not hasattr(typing.TypeVar, '__class_getitem__'):
+    # Add the method to make TypeVar compatible with subscripting
+    def _class_getitem(cls, key):
+        return cls
+    typing.TypeVar.__class_getitem__ = classmethod(_class_getitem)
+
 import spacy
 from spacy.tokens import Doc, Span
 from spacy.language import Language

@@ -1,3 +1,12 @@
+# Monkey patch for typing.TypeVar issue
+import sys
+import typing
+if not hasattr(typing.TypeVar, '__class_getitem__'):
+    # Add the method to make TypeVar compatible with subscripting
+    def _class_getitem(cls, key):
+        return cls
+    typing.TypeVar.__class_getitem__ = classmethod(_class_getitem)
+
 try:
     # Try importing numpy first to ensure correct version is loaded
     import numpy as np
