@@ -4,7 +4,7 @@ pandas>=2.0.0
 spacy==3.7.4
 nltk==3.8.1
 pydantic==1.10.8
-typing-extensions>=4.5.0
+typing-extensions==4.5.0
 Pillow>=9.5.0
 
 # spaCy model direct reference - using a version compatible with spaCy 3.7.4
