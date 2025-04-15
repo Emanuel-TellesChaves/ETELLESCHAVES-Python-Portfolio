@@ -20,6 +20,7 @@ The unique feature of this application is that it allows users to define custom 
 ### Prerequisites
 
 - Python 3.7+
+- Python 3.12 (Streamlit Cloud deployment)
 - pip (Python package installer)
 
 ### Installation
@@ -28,6 +29,7 @@ The unique feature of this application is that it allows users to define custom 
    ```
    git clone https://github.com/yourusername/NERStreamlitApp.git
    cd NERStreamlitApp
+   cd ETELLESCHAVES-Python-Portfolio/NERStreamlitApp
    ```
 
 2. Create a virtual environment (optional but recommended):
@@ -50,7 +52,7 @@ The unique feature of this application is that it allows users to define custom 
 
 Start the Streamlit application:
 ```
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 The application will open in your default web browser at `http://localhost:8501`.
@@ -75,10 +77,6 @@ Example patterns:
 2. Add your custom entity definitions in the "Entity Definition" tab
 3. Click "Process Text" in the "Results" tab
 4. View the highlighted entities in the output
-
-## Screenshots
-
-The application consists of three main tabs:
 
 ### Text Input Tab
 This tab allows users to:
@@ -105,14 +103,20 @@ In this tab, users can:
 
 ```
 NERStreamlitApp/
-├── app.py                    # Main Streamlit application
-├── ner_processor.py          # NER processing logic
-├── utils.py                  # Utility functions
-├── sample_texts/             # Sample text files for testing
-│   ├── tech_news.txt         # Technology news sample
-│   └── business.txt          # Business news sample
-├── requirements.txt          # Python dependencies
-└── README.md                 # Project documentation
+├── streamlit_app.py           # Entry point for Streamlit Cloud
+├── app.py                     # Main application logic
+├── ner_processor.py           # NER processing logic
+├── utils.py                   # Utility functions
+├── sample_texts/              # Sample text files for testing
+│   ├── tech_news.txt          # Technology news sample
+│   └── business.txt           # Business news sample
+├── .streamlit/                # Streamlit configuration
+│   └── config.toml            # Configuration settings
+├── requirements.txt           # Python dependencies
+├── packages.txt               # System dependencies for Streamlit Cloud
+├── setup.sh                   # Setup script for Streamlit Cloud deployment
+├── runtime.txt                # Python version specification
+└── README.md                  # Project documentation
 ```
 
 ## Required Libraries
@@ -128,12 +132,6 @@ NERStreamlitApp/
 2. **Pattern Matching**: When you process text, the application uses these patterns to identify entities
 3. **Custom Override**: The custom entities will override spaCy's default entities when there are conflicts
 4. **Visual Highlighting**: Entities are highlighted with distinct colors based on their labels
-
-## References
-
-- [spaCy Documentation](https://spacy.io/usage)
-- [Streamlit Documentation](https://docs.streamlit.io)
-- [EntityRuler Documentation](https://spacy.io/usage/rule-based-matching#entityruler)
 
 ## Deployment
 
@@ -153,8 +151,28 @@ To run the application locally:
 
 3. Run the Streamlit app:
    ```bash
-   streamlit run app.py
+   streamlit run streamlit_app.py
    ```
 
+### Streamlit Cloud Deployment
 
---- 
+This app is configured for easy deployment to Streamlit Cloud:
+
+1. Fork this repository to your GitHub account
+2. Sign in to [Streamlit Cloud](https://share.streamlit.io/)
+3. Create a new app and select your repository
+4. Choose the main branch and set the main file path to `NERStreamlitApp/streamlit_app.py`
+5. Click "Deploy"
+
+The application will automatically use:
+- `requirements.txt` for Python dependencies
+- `packages.txt` for system dependencies
+- `setup.sh` for additional setup commands
+- `runtime.txt` for Python version specification
+
+## References
+
+- [spaCy Documentation](https://spacy.io/usage)
+- [Streamlit Documentation](https://docs.streamlit.io)
+- [EntityRuler Documentation](https://spacy.io/usage/rule-based-matching#entityruler)
+- [Streamlit Cloud Deployment](https://docs.streamlit.io/streamlit-cloud)

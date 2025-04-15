@@ -6,9 +6,17 @@ set -e
 # Upgrade pip to the latest version
 pip install --upgrade pip
 
-# Install all dependencies with no-cache-dir to ensure fresh download
+# Print Python version
+python --version
+
+# Install Pillow directly from wheel
+echo "Installing Pillow from pre-built wheel..."
+pip install https://files.pythonhosted.org/packages/8d/6e/5374c9df9c3a389fe4e07227604b76923fcf95705b5f42dba56fa1ac1200/Pillow-10.1.0-cp312-cp312-manylinux_2_28_x86_64.whl --no-cache-dir
+
+# Install all other dependencies with no-cache-dir to ensure fresh download
 echo "Installing dependencies..."
-pip install -r requirements.txt --no-cache-dir --prefer-binary
+grep -v "Pillow" requirements.txt | grep -v "https://files.pythonhosted.org" > requirements_filtered.txt
+pip install -r requirements_filtered.txt --no-cache-dir --prefer-binary
 
 # Make sure spaCy model is linked - using the correct version
 python -m spacy link en_core_web_sm-3.7.1 en_core_web_sm

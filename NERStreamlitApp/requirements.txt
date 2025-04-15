@@ -6,7 +6,8 @@ nltk==3.8.1
 pydantic==1.10.8
 typing-extensions==4.5.0
 types-setuptools==68.0.0.3
-Pillow==9.5.0
+# Direct wheel URL for Pillow compatible with Python 3.12
+https://files.pythonhosted.org/packages/8d/6e/5374c9df9c3a389fe4e07227604b76923fcf95705b5f42dba56fa1ac1200/Pillow-10.1.0-cp312-cp312-manylinux_2_28_x86_64.whl
 python-dateutil==2.8.2
 setuptools==65.5.1
 
