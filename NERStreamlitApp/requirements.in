@@ -6,5 +6,5 @@ nltk==3.8.1
 pydantic==1.10.8
 typing-extensions>=4.5.0
 
-# Using a pre-built wheel
-Pillow==10.0.0 
+# Using a version compatible with Streamlit 1.24.0
+pillow>=6.2.0,<10.0.0 
