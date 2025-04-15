@@ -321,7 +321,7 @@ with main_container:
 st.markdown("---")
 st.markdown(
     "Custom Named Entity Recognition App | Built with Streamlit and spaCy | "
-    "[GitHub Repository](https://github.com/Emanuel-TellesChaves/NERStreamlitApp)"
+    "[GitHub Repository](https://github.com/Emanuel-TellesChaves/ETELLESCHAVES-Python-Portfolio/tree/main/NERStreamlitApp)"
 )
 
 # Run once at startup to download the model
