@@ -6,13 +6,19 @@ textColor = "#FAFAFA"
 font = "sans serif"
 
 [server]
-enableCORS = false
-enableWebsocketCompression = false
-maxUploadSize = 50
-runOnSave = true
+enableCORS = true
+enableWebsocketCompression = true
+maxUploadSize = 10
+runOnSave = false
 
 [browser]
 gatherUsageStats = false
 
 [logger]
-level = "info" 
+level = "info"
+
+[client]
+showErrorDetails = true
+
+[runner]
+fastReruns = true 

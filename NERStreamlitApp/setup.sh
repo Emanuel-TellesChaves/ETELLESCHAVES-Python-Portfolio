@@ -9,6 +9,5 @@ pip install --upgrade pip
 # Install Python dependencies
 pip install -r requirements.txt
 
-# Make sure spaCy model is downloaded and linked
-python -m spacy download en_core_web_sm
+# Link spaCy model (don't try to download it again)
 python -m spacy link en_core_web_sm en_core_web_sm 
