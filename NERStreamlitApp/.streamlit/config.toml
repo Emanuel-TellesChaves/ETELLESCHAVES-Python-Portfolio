@@ -10,7 +10,8 @@ enableCORS = true
 enableWebsocketCompression = true
 maxUploadSize = 10
 runOnSave = false
-headless = true
+headless = false
+serverAddress = "localhost"
 port = 8501
 
 [browser]
