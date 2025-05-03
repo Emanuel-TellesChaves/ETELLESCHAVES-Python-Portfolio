@@ -25,10 +25,22 @@ An interactive web application built with Streamlit for analyzing the historical
 
 ## Usage
 
-Run the application with:
+You can run the application in two ways:
 
+### Option 1: Using the run.py script
 ```bash
 python run.py
+```
+
+### Option 2: Directly with Streamlit
+```bash
+cd StreamlitAppFinal
+streamlit run portfolio_analyzer.py
+```
+
+Or from the parent directory:
+```bash
+streamlit run StreamlitAppFinal/portfolio_analyzer.py
 ```
 
 Then follow the instructions in the web interface:
@@ -38,7 +50,8 @@ Then follow the instructions in the web interface:
 
 ## Project Structure
 
-- `src/` - Contains the main application code
+- `portfolio_analyzer.py` - The main Streamlit application
+- `run.py` - Helper script to launch the application
 - `data/` - Directory for any data files
 - `utils/` - Utility functions and helpers
 
