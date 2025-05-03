@@ -19,7 +19,7 @@ def main():
         script_dir = os.path.dirname(os.path.abspath(__file__))
         
         # Path to the portfolio_analyzer.py file
-        app_path = os.path.join(script_dir, "src", "portfolio_analyzer.py")
+        app_path = os.path.join(script_dir, "portfolio_analyzer.py")
         
         # Check if the file exists
         if not os.path.exists(app_path):
