@@ -1,7 +1,3 @@
-# Python Data Science & Analytics Portfolio
-
-This repository showcases my expertise in data analysis, visualization, and application development using Python. Each project demonstrates different technical skills and approaches to solving real-world data problems.
-
 ## Portfolio Overview
 
 This collection represents a progression of skills from data analysis to interactive applications:
@@ -10,11 +6,10 @@ This collection represents a progression of skills from data analysis to interac
 
 - **Data Visualization & Storytelling**: All projects incorporate visualization techniques, with each showing different approaches from static matplotlib plots to interactive Plotly charts.
 
-- **Interactive Application Development**: The Streamlit projects showcase my ability to transform data analysis into user-facing applications, making insights accessible to non-technical users.
+- **Interactive Application Development**: The Streamlit project to transform data analysis into user-facing applications, making insights accessible to non-technical users.
 
 - **Natural Language Processing**: The NER application demonstrates more advanced ML/AI capabilities, applying computational linguistics to extract structured information from text.
 
-Together, these projects reflect my comprehensive skillset across the data science pipeline—from data preparation to insight generation to application development.
 
 ## Projects
 
